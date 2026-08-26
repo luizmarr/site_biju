@@ -1,22 +1,4 @@
 /* =========================
-   VARIÁVEIS
-========================= */
-
-:root {
-    --rosa: #b85c7d;
-    --rosa-claro: #f8e9ee;
-    --rosa-hover: #9f4969;
-
-    --dourado: #c5a05a;
-    --dourado-claro: #dfc98f;
-
-    --texto: #383838;
-    --texto-claro: #777;
-    --branco: #ffffff;
-}
-
-
-/* =========================
    RESET
 ========================= */
 
@@ -28,7 +10,7 @@
 
 
 /* =========================
-   BODY
+   PÁGINA
 ========================= */
 
 body {
@@ -38,72 +20,19 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 40px 20px;
+    padding: 30px 20px;
 
-    font-family: Arial, sans-serif;
-
-    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
 
     background:
         radial-gradient(
-            circle at 15% 20%,
-            rgba(255, 255, 255, 0.9),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(255, 255, 255, 0.8),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #fff9fb 0%,
-            #f8e9ee 50%,
-            #f5dce5 100%
+            circle at top,
+            #fff 0%,
+            #fff5f8 45%,
+            #fce4ec 100%
         );
 
-    position: relative;
-}
-
-
-/* =========================
-   DETALHES DECORATIVOS
-========================= */
-
-body::before {
-    content: "";
-
-    position: fixed;
-
-    width: 280px;
-    height: 280px;
-
-    top: -120px;
-    left: -120px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(197, 160, 90, 0.25);
-
-    pointer-events: none;
-}
-
-body::after {
-    content: "";
-
-    position: fixed;
-
-    width: 220px;
-    height: 220px;
-
-    right: -100px;
-    bottom: -100px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(197, 160, 90, 0.25);
-
-    pointer-events: none;
+    color: #333;
 }
 
 
@@ -113,13 +42,14 @@ body::after {
 
 .container {
     width: 100%;
-    max-width: 620px;
+    max-width: 500px;
 
     text-align: center;
 
-    position: relative;
+    /* REMOVE A CAIXA BRANCA */
+    background: transparent;
 
-    z-index: 1;
+    padding: 20px;
 }
 
 
@@ -128,11 +58,7 @@ body::after {
 ========================= */
 
 .cabecalho {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 
@@ -144,13 +70,9 @@ body::after {
     width: 250px;
     max-width: 80%;
 
-    margin-bottom: 28px;
-
     display: block;
 
-    filter: drop-shadow(
-        0 8px 15px rgba(100, 50, 70, 0.12)
-    );
+    margin: 0 auto 30px;
 
     transition: transform 0.3s ease;
 }
@@ -161,38 +83,17 @@ body::after {
 
 
 /* =========================
-   LINHA DECORATIVA
-========================= */
-
-.cabecalho::after {
-    content: "";
-
-    width: 55px;
-    height: 2px;
-
-    margin-top: 22px;
-
-    background: linear-gradient(
-        90deg,
-        var(--dourado-claro),
-        var(--dourado),
-        var(--dourado-claro)
-    );
-}
-
-
-/* =========================
    TÍTULO
 ========================= */
 
 h1 {
-    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-size: 2.6rem;
 
-    font-weight: 500;
+    font-weight: 600;
 
-    letter-spacing: -0.5px;
+    letter-spacing: -1px;
 
-    color: var(--rosa);
+    color: #b8326a;
 
     margin-bottom: 12px;
 }
@@ -203,11 +104,9 @@ h1 {
 ========================= */
 
 .frase {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
 
-    font-weight: 500;
-
-    color: var(--texto);
+    color: #666;
 
     line-height: 1.6;
 }
@@ -218,24 +117,19 @@ h1 {
 ========================= */
 
 .apresentacao {
-    max-width: 500px;
-
-    margin: 0 auto;
+    margin-top: 10px;
 }
 
-
-/* =========================
-   DESCRIÇÃO
-========================= */
-
 .apresentacao p {
+    max-width: 420px;
+
+    margin: 0 auto 30px;
+
     font-size: 1rem;
 
     line-height: 1.8;
 
-    color: var(--texto-claro);
-
-    margin-bottom: 30px;
+    color: #777;
 }
 
 
@@ -244,10 +138,6 @@ h1 {
 ========================= */
 
 .btn-whatsapp {
-    width: min(100%, 380px);
-
-    margin: 0 auto;
-
     display: flex;
 
     align-items: center;
@@ -255,53 +145,42 @@ h1 {
 
     gap: 10px;
 
+    width: 100%;
+
+    max-width: 380px;
+
+    margin: 0 auto;
+
     padding: 17px 25px;
 
     border-radius: 50px;
 
-    background: var(--rosa);
+    background: #25d366;
 
-    color: var(--branco);
+    color: white;
 
     text-decoration: none;
 
-    font-size: 1rem;
+    font-size: 1.05rem;
 
-    font-weight: 600;
+    font-weight: bold;
 
     box-shadow:
-        0 12px 25px rgba(184, 92, 125, 0.25);
+        0 10px 25px rgba(37, 211, 102, 0.25);
 
     transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
+
+/* Efeito ao passar o mouse */
 
 .btn-whatsapp:hover {
-    background: var(--rosa-hover);
-
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 
     box-shadow:
-        0 16px 30px rgba(184, 92, 125, 0.32);
-
-    color: var(--branco);
-}
-
-
-.btn-whatsapp:active {
-    transform: translateY(-1px);
-}
-
-
-/* =========================
-   ÍCONE
-========================= */
-
-.btn-whatsapp span {
-    font-size: 1.2rem;
+        0 15px 30px rgba(37, 211, 102, 0.35);
 }
 
 
@@ -314,26 +193,30 @@ footer {
 
     font-size: 0.85rem;
 
-    color: var(--texto-claro);
+    color: #999;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.3px;
 }
 
 
 /* =========================
-   RESPONSIVIDADE
+   CELULAR
 ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
 
     body {
-        padding: 30px 20px;
+        padding: 20px 15px;
+    }
+
+    .container {
+        padding: 10px;
     }
 
     .logo {
-        width: 210px;
+        width: 200px;
 
-        margin-bottom: 22px;
+        margin-bottom: 25px;
     }
 
     h1 {
@@ -349,34 +232,8 @@ footer {
     }
 
     .btn-whatsapp {
-        width: 100%;
-    }
-}
+        font-size: 1rem;
 
-
-/* =========================
-   CELULARES PEQUENOS
-========================= */
-
-@media (max-width: 380px) {
-
-    body {
-        padding: 25px 15px;
-    }
-
-    .logo {
-        width: 180px;
-    }
-
-    h1 {
-        font-size: 1.75rem;
-    }
-
-    .frase {
-        font-size: 0.95rem;
-    }
-
-    footer {
-        font-size: 0.8rem;
+        padding: 16px;
     }
 }
