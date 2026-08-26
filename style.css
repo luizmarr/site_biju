@@ -2,22 +2,17 @@
    VARIÁVEIS
 ========================= */
 
-
 :root {
-    --rosa-principal: #c86b8c;
-    --rosa-escuro: #a94f70;
-    --rosa-claro: #fff5f8;
-    --rosa-fundo: #fde8ef;
+    --rosa: #b85c7d;
+    --rosa-claro: #f8e9ee;
+    --rosa-hover: #9f4969;
 
-    --dourado: #c9a45c;
-    --dourado-claro: #e4cf9b;
+    --dourado: #c5a05a;
+    --dourado-claro: #dfc98f;
 
-    --texto-principal: #3f3f3f;
-    --texto-secundario: #777;
-
+    --texto: #383838;
+    --texto-claro: #777;
     --branco: #ffffff;
-
-    --sombra: 0 20px 50px rgba(90, 40, 60, 0.12);
 }
 
 
@@ -43,23 +38,72 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 30px 20px;
-
-    background:
-        radial-gradient(
-            circle at top left,
-            rgba(255, 255, 255, 0.9),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            var(--rosa-claro),
-            var(--rosa-fundo)
-        );
+    padding: 40px 20px;
 
     font-family: Arial, sans-serif;
 
-    color: var(--texto-principal);
+    color: var(--texto);
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 255, 255, 0.9),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(255, 255, 255, 0.8),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fff9fb 0%,
+            #f8e9ee 50%,
+            #f5dce5 100%
+        );
+
+    position: relative;
+}
+
+
+/* =========================
+   DETALHES DECORATIVOS
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 280px;
+    height: 280px;
+
+    top: -120px;
+    left: -120px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(197, 160, 90, 0.25);
+
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 220px;
+    height: 220px;
+
+    right: -100px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(197, 160, 90, 0.25);
+
+    pointer-events: none;
 }
 
 
@@ -69,49 +113,13 @@ body {
 
 .container {
     width: 100%;
-    max-width: 440px;
-
-    padding: 45px 35px 35px;
+    max-width: 620px;
 
     text-align: center;
 
-    background: rgba(255, 255, 255, 0.96);
-
-    border: 1px solid rgba(201, 164, 92, 0.18);
-
-    border-radius: 30px;
-
-    box-shadow: var(--sombra);
-
     position: relative;
 
-    overflow: hidden;
-}
-
-
-/* Detalhe dourado no topo */
-
-.container::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 90px;
-    height: 4px;
-
-    background: linear-gradient(
-        90deg,
-        var(--dourado-claro),
-        var(--dourado),
-        var(--dourado-claro)
-    );
-
-    border-radius: 0 0 10px 10px;
+    z-index: 1;
 }
 
 
@@ -120,6 +128,10 @@ body {
 ========================= */
 
 .cabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     margin-bottom: 30px;
 }
 
@@ -129,12 +141,16 @@ body {
 ========================= */
 
 .logo {
-    width: 220px;
-    max-width: 90%;
+    width: 250px;
+    max-width: 80%;
+
+    margin-bottom: 28px;
 
     display: block;
 
-    margin: 0 auto 25px;
+    filter: drop-shadow(
+        0 8px 15px rgba(100, 50, 70, 0.12)
+    );
 
     transition: transform 0.3s ease;
 }
@@ -145,19 +161,40 @@ body {
 
 
 /* =========================
+   LINHA DECORATIVA
+========================= */
+
+.cabecalho::after {
+    content: "";
+
+    width: 55px;
+    height: 2px;
+
+    margin-top: 22px;
+
+    background: linear-gradient(
+        90deg,
+        var(--dourado-claro),
+        var(--dourado),
+        var(--dourado-claro)
+    );
+}
+
+
+/* =========================
    TÍTULO
 ========================= */
 
 h1 {
-    margin-bottom: 12px;
+    font-size: clamp(2rem, 5vw, 2.8rem);
 
-    font-size: 2rem;
-
-    font-weight: 600;
+    font-weight: 500;
 
     letter-spacing: -0.5px;
 
-    color: var(--rosa-principal);
+    color: var(--rosa);
+
+    margin-bottom: 12px;
 }
 
 
@@ -168,11 +205,11 @@ h1 {
 .frase {
     font-size: 1.05rem;
 
-    font-weight: 600;
+    font-weight: 500;
 
-    line-height: 1.5;
+    color: var(--texto);
 
-    color: var(--texto-principal);
+    line-height: 1.6;
 }
 
 
@@ -181,7 +218,9 @@ h1 {
 ========================= */
 
 .apresentacao {
-    padding-top: 5px;
+    max-width: 500px;
+
+    margin: 0 auto;
 }
 
 
@@ -190,15 +229,13 @@ h1 {
 ========================= */
 
 .apresentacao p {
-    max-width: 350px;
+    font-size: 1rem;
 
-    margin: 0 auto 30px;
+    line-height: 1.8;
 
-    font-size: 0.98rem;
+    color: var(--texto-claro);
 
-    line-height: 1.7;
-
-    color: var(--texto-secundario);
+    margin-bottom: 30px;
 }
 
 
@@ -207,7 +244,9 @@ h1 {
 ========================= */
 
 .btn-whatsapp {
-    width: 100%;
+    width: min(100%, 380px);
+
+    margin: 0 auto;
 
     display: flex;
 
@@ -216,15 +255,11 @@ h1 {
 
     gap: 10px;
 
-    padding: 17px 22px;
+    padding: 17px 25px;
 
     border-radius: 50px;
 
-    background: linear-gradient(
-        135deg,
-        #25d366,
-        #1ebe5d
-    );
+    background: var(--rosa);
 
     color: var(--branco);
 
@@ -235,37 +270,38 @@ h1 {
     font-weight: 600;
 
     box-shadow:
-        0 10px 25px rgba(37, 211, 102, 0.25);
+        0 12px 25px rgba(184, 92, 125, 0.25);
 
     transition:
         transform 0.25s ease,
+        background 0.25s ease,
         box-shadow 0.25s ease;
 }
 
 
-/* Hover */
-
 .btn-whatsapp:hover {
+    background: var(--rosa-hover);
+
     transform: translateY(-3px);
 
     box-shadow:
-        0 14px 30px rgba(37, 211, 102, 0.32);
+        0 16px 30px rgba(184, 92, 125, 0.32);
 
     color: var(--branco);
 }
 
-
-/* Clique */
 
 .btn-whatsapp:active {
     transform: translateY(-1px);
 }
 
 
-/* Ícone */
+/* =========================
+   ÍCONE
+========================= */
 
 .btn-whatsapp span {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
 }
 
 
@@ -274,45 +310,13 @@ h1 {
 ========================= */
 
 footer {
-    position: relative;
-
-    margin-top: 28px;
-
-    padding-top: 20px;
-
-    color: var(--texto-secundario);
+    margin-top: 35px;
 
     font-size: 0.85rem;
-}
 
+    color: var(--texto-claro);
 
-/* Linha decorativa */
-
-footer::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 45px;
-    height: 1px;
-
-    background: var(--dourado);
-}
-
-
-/* =========================
-   ACESSIBILIDADE
-========================= */
-
-.btn-whatsapp:focus-visible {
-    outline: 3px solid var(--dourado-claro);
-
-    outline-offset: 4px;
+    letter-spacing: 0.2px;
 }
 
 
@@ -320,26 +324,20 @@ footer::before {
    RESPONSIVIDADE
 ========================= */
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
 
     body {
-        padding: 20px 15px;
-    }
-
-    .container {
-        padding: 38px 24px 30px;
-
-        border-radius: 24px;
+        padding: 30px 20px;
     }
 
     .logo {
-        width: 185px;
+        width: 210px;
 
-        margin-bottom: 20px;
+        margin-bottom: 22px;
     }
 
     h1 {
-        font-size: 1.7rem;
+        font-size: 2rem;
     }
 
     .frase {
@@ -347,32 +345,38 @@ footer::before {
     }
 
     .apresentacao p {
-        font-size: 0.94rem;
+        font-size: 0.95rem;
     }
 
     .btn-whatsapp {
-        padding: 16px;
-
-        font-size: 0.95rem;
+        width: 100%;
     }
 }
 
 
 /* =========================
-   TELAS MUITO PEQUENAS
+   CELULARES PEQUENOS
 ========================= */
 
-@media (max-width: 350px) {
+@media (max-width: 380px) {
 
-    .container {
-        padding: 32px 18px 25px;
+    body {
+        padding: 25px 15px;
     }
 
     .logo {
-        width: 165px;
+        width: 180px;
     }
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
+    }
+
+    .frase {
+        font-size: 0.95rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
     }
 }
