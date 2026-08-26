@@ -1,11 +1,40 @@
-/* Reset */
+/* =========================
+   VARIÁVEIS
+========================= */
+
+:root {
+    --rosa-principal: #c86b8c;
+    --rosa-escuro: #a94f70;
+    --rosa-claro: #fff5f8;
+    --rosa-fundo: #fde8ef;
+
+    --dourado: #c9a45c;
+    --dourado-claro: #e4cf9b;
+
+    --texto-principal: #3f3f3f;
+    --texto-secundario: #777;
+
+    --branco: #ffffff;
+
+    --sombra: 0 20px 50px rgba(90, 40, 60, 0.12);
+}
+
+
+/* =========================
+   RESET
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo */
+
+/* =========================
+   BODY
+========================= */
+
 body {
     min-height: 100vh;
 
@@ -13,126 +42,336 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 20px;
+    padding: 30px 20px;
 
-    background: linear-gradient(
-        180deg,
-        #fff5f8 0%,
-        #ffe4ec 100%
-    );
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(255, 255, 255, 0.9),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            var(--rosa-claro),
+            var(--rosa-fundo)
+        );
 
     font-family: Arial, sans-serif;
+
+    color: var(--texto-principal);
 }
 
-/* Container */
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container {
     width: 100%;
-    max-width: 420px;
+    max-width: 440px;
+
+    padding: 45px 35px 35px;
 
     text-align: center;
 
-    background: white;
+    background: rgba(255, 255, 255, 0.96);
 
-    padding: 35px 25px;
+    border: 1px solid rgba(201, 164, 92, 0.18);
 
-    border-radius: 25px;
+    border-radius: 30px;
 
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--sombra);
+
+    position: relative;
+
+    overflow: hidden;
 }
 
-/* Logo */
+
+/* Detalhe dourado no topo */
+
+.container::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90px;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        var(--dourado-claro),
+        var(--dourado),
+        var(--dourado-claro)
+    );
+
+    border-radius: 0 0 10px 10px;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.cabecalho {
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
 .logo {
     width: 220px;
     max-width: 90%;
 
-    margin-bottom: 25px;
+    display: block;
+
+    margin: 0 auto 25px;
+
+    transition: transform 0.3s ease;
 }
 
-/* Título */
+.logo:hover {
+    transform: scale(1.03);
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
 h1 {
+    margin-bottom: 12px;
+
     font-size: 2rem;
-    color: #d63384;
 
-    margin-bottom: 15px;
+    font-weight: 600;
+
+    letter-spacing: -0.5px;
+
+    color: var(--rosa-principal);
 }
 
-/* Frase principal */
+
+/* =========================
+   FRASE
+========================= */
+
 .frase {
-    font-size: 1.1rem;
-    font-weight: bold;
+    font-size: 1.05rem;
 
-    color: #555;
+    font-weight: 600;
 
-    margin-bottom: 15px;
+    line-height: 1.5;
+
+    color: var(--texto-principal);
 }
 
-/* Descrição */
-.descricao {
-    color: #777;
 
-    line-height: 1.6;
+/* =========================
+   APRESENTAÇÃO
+========================= */
 
-    margin-bottom: 30px;
+.apresentacao {
+    padding-top: 5px;
 }
 
-/* Botão WhatsApp */
+
+/* =========================
+   DESCRIÇÃO
+========================= */
+
+.apresentacao p {
+    max-width: 350px;
+
+    margin: 0 auto 30px;
+
+    font-size: 0.98rem;
+
+    line-height: 1.7;
+
+    color: var(--texto-secundario);
+}
+
+
+/* =========================
+   BOTÃO WHATSAPP
+========================= */
+
 .btn-whatsapp {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
     width: 100%;
 
-    background: linear-gradient(
-        135deg,
-        #25D366,
-        #1ebc59
-    );
+    display: flex;
 
-    color: white;
+    align-items: center;
+    justify-content: center;
 
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
+    gap: 10px;
 
-    padding: 18px;
+    padding: 17px 22px;
 
     border-radius: 50px;
 
-    box-shadow:
-        0 8px 20px rgba(37, 211, 102, 0.35);
+    background: linear-gradient(
+        135deg,
+        #25d366,
+        #1ebe5d
+    );
 
-    transition: 0.3s ease;
+    color: var(--branco);
+
+    text-decoration: none;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 10px 25px rgba(37, 211, 102, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
+
 
 /* Hover */
+
 .btn-whatsapp:hover {
     transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 30px rgba(37, 211, 102, 0.32);
+
+    color: var(--branco);
 }
+
+
+/* Clique */
+
+.btn-whatsapp:active {
+    transform: translateY(-1px);
+}
+
 
 /* Ícone */
-.icone {
-    font-size: 1.3rem;
+
+.btn-whatsapp span {
+    font-size: 1.25rem;
 }
 
-/* Rodapé */
-.rodape {
-    margin-top: 20px;
 
-    font-size: 0.9rem;
+/* =========================
+   RODAPÉ
+========================= */
 
-    color: #888;
+footer {
+    position: relative;
+
+    margin-top: 28px;
+
+    padding-top: 20px;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.85rem;
 }
 
-/* Telas pequenas */
+
+/* Linha decorativa */
+
+footer::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 45px;
+    height: 1px;
+
+    background: var(--dourado);
+}
+
+
+/* =========================
+   ACESSIBILIDADE
+========================= */
+
+.btn-whatsapp:focus-visible {
+    outline: 3px solid var(--dourado-claro);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
 @media (max-width: 480px) {
+
+    body {
+        padding: 20px 15px;
+    }
+
+    .container {
+        padding: 38px 24px 30px;
+
+        border-radius: 24px;
+    }
+
+    .logo {
+        width: 185px;
+
+        margin-bottom: 20px;
+    }
+
     h1 {
         font-size: 1.7rem;
     }
 
+    .frase {
+        font-size: 1rem;
+    }
+
+    .apresentacao p {
+        font-size: 0.94rem;
+    }
+
+    .btn-whatsapp {
+        padding: 16px;
+
+        font-size: 0.95rem;
+    }
+}
+
+
+/* =========================
+   TELAS MUITO PEQUENAS
+========================= */
+
+@media (max-width: 350px) {
+
+    .container {
+        padding: 32px 18px 25px;
+    }
+
     .logo {
-        width: 180px;
+        width: 165px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
     }
 }
